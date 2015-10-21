@@ -15,12 +15,12 @@ There's no rocket sciense in the script, it accomplishes the project task in a v
 manner, step-by-step. Although, there are some alterations to the task workflow, that author of the
 code found reasonable:
 
-* Step 2 is not performed on the dataset from Step 1. Instead we just find features of interest and memorize column indices to later extract them in final step
-* Step 3 is not performed on the dataset from Step 1. We will perform this absolutely necessary and very important action on the final dataset. 
-* Step 4 is also no performed on the dataset from Step 1. This another reasonable and sane action will be issued on the final dataset.
+* Step 2 is not directly performed on the dataset from Step 1. Instead we just find features of interest and memorize their column indices. Actual extraction of feaatures of interes is performed on a final tidy-dataset.
+* Step 3 is not directly performed on the dataset from Step 1. We will perform this absolutely necessary and very important action on the final tidy dataset. 
+* Step 4 is also not directly performed on the dataset from Step 1. This another reasonable and sane action will be issued on the final dataset as well.
 
-Aside from mentioned minor alterations, code works step-by-step according to the task. Comments are
-placed along the lines in case some poor soul will have to read them. So there's no reason to write
+Aside from mentioned minor alterations, code works pretty much according to the task. Comments are
+placed along the lines in case some unfortunate soul will have to read them. So there's no reason to write
 code description twice, lets just leave it there.
 
 ## Some important details
@@ -41,7 +41,7 @@ to each feature name:
 
 See 'improve_the_name()' function in run_analysis.R for details.
 
-## Data description 
+## Resulting data description 
 As the task demanded, codebook with description of generated data is placed in separate file
 'Codebook.md' that can be found right next to this README.
 
