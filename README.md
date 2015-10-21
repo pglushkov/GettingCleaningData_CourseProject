@@ -38,6 +38,7 @@ to each feature name:
 * abbreviations like 'Acc' and 'Gyro' were replaced with full words
 * all paranteses and '-' signes were removed
 * 'mean()' and 'std()' are replaced with Mean and Std
+
 See 'improve_the_name()' function in run_analysis.R for details.
 
 ## Data description 
