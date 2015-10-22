@@ -37,15 +37,15 @@ run_analysis <- function() {
 	f_idxs <- c(f_idxs, ncol(data_full) - 1);
 	f_idxs <- c(f_idxs, ncol(data_full));
 
-	### We did not actually 'extracted' 'only columns that bla-bla-bla' as written in the task, instead we
-	### 'memorized' indexes of those columns for later use. 'f_idxs' now contains indexes of all columns
+	### We did not actually 'extracted only columns that bla-bla-bla' as written in the task, instead we
+	### 'memorized' indices of those columns for later use. 'f_idxs' now contains indexes of all columns
 	### that describe all 'mean' and 'std' features ...
 	print("Extracted all mean and std features ...");
 
 
 	############ KINDA SKIPPING STEP 3 AND STEP 4 FROM THE TASK ...	
 	### For now we just skip Step 3 and 4, cause whats the point in renaming columns and replacin cells now, 
-	### lets do all of that afterwards when final tidy dataset is formed and we're about to save it in file!
+	### lets do all of that afterwards when final tidy dataset is formed and we're about to save it on disk!
 	print("Leaving best for last, will rename and decode sfuff later ...");
 
 	############ KINDA PERFORMING MAIN PART OF STEP 5 FROM THE TASK ...
@@ -53,7 +53,7 @@ run_analysis <- function() {
 	# pre-allocating final tidy dataset
 	out_parts = data.frame(); 
 
-	# splitting our 'full_data' by 'Subject' criteria
+	# splitting our 'full_data' from Step 1 by 'Subject' criteria
 	subj_parts = split(data_full, data_full$Subject);
 
 	# traversing through all subjects ....
@@ -66,7 +66,7 @@ run_analysis <- function() {
 		for (act in act_parts) {
 
 			final_act = act[, f_idxs];
-			# now we finally have a dataframe for i'th user k'th activity with only relevant features in it
+			# now we finally have a dataframe for m'th user n'th activity with only relevant features in it
 			# calculate average values for each feature
 
 			# dbg
@@ -95,15 +95,14 @@ run_analysis <- function() {
 	# Now is the most hidious, stupid, useless and obscure part of the whole task. I trully believe that provided
 	# feature-naming notation in given dataset is clear and explicit and does not need any changes what-so-ever.
 	# But, as the task demands, lets make those perfectly fine features names even more 'clear' and 'readable'
-	# and 'descriptive' and bla-bla-bla ...
+	# and 'descriptive'!
 	
 	new_names = names(out_parts);
 	new_names = lapply(new_names, improve_the_name);
 	names(out_parts)<-new_names;
-	### now we have sooooooo much better namings of features, in makes me wanna jump!
+	### now we have sooooooo much better namings of features, in makes me wanna jump on my chair!
 	print("Feature names are changed in final dataset ...");
 
-	
 	############ KINDA PERFORMING STEP 3 FROM THE TASK ...	
 	# just replacing activity code with an actual english word for it ...
 	for (k in 1:nrow(out_parts)) {
@@ -141,18 +140,20 @@ is_mean_or_std_feature <- function(feature = "") {
 
 
 
-# This is just one of countless options of how to 'improve' the namings of our features.
+# This is just one of countless ways of how to 'improve' the namings of our features.
 # The thing is purely subjective and if you find this implementation a poor choice,
-# please feel free to issue a legal action to European Court of Human Rights. Thanks!
+# please feel free to issue a legal action to European Court of Human Rights. Thankz!
 improve_the_name <- function(old_name) {
 
 	#dbg
 	#print(sprintf("Working on name = %s ...", old_name));
 
 	new_name = old_name;
+	# replacing starting 'f' by word 'frequency' if any
 	if (substr(old_name, 1, 1) == 'f') {
 		new_name = paste('frequency', substr(old_name, 2, nchar(old_name)), sep='');
 	}
+	# replacing starting 't' by word 'time' if any
 	if (substr(old_name, 1, 1) == 't') {
 		new_name = paste('time', substr(old_name, 2, nchar(old_name)), sep='');
 	}
@@ -171,8 +172,9 @@ improve_the_name <- function(old_name) {
 	return(new_name);
 }
 
-# This is basically a 'decode' kind of function, it simply maps input
-# number to corresponding word in English
+# This is basically a 'decode-the-number' kind of function, it simply maps input
+# number to corresponding word in English. Words for codes are taken from file 
+# 'activity_labels.txt' from original dataset.
 decode_actividy <- function(acode) {
 	if (acode == 1) {
 		return("WALKING");

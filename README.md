@@ -15,7 +15,7 @@ There's no rocket sciense in the script, it accomplishes the project task in a v
 manner, step-by-step. Although, there are some alterations to the task workflow, that author of the
 code found reasonable:
 
-* Step 2 is not directly performed on the dataset from Step 1. Instead we just find features of interest and memorize their column indices. Actual extraction of feaatures of interes is performed on a final tidy-dataset.
+* Step 2 is not directly performed on the dataset from Step 1. Instead we just find features of interest and memorize their column indices. Actual extraction of features of interest is performed on a final tidy-dataset.
 * Step 3 is not directly performed on the dataset from Step 1. We will perform this absolutely necessary and very important action on the final tidy dataset. 
 * Step 4 is also not directly performed on the dataset from Step 1. This another reasonable and sane action will be issued on the final dataset as well.
 
@@ -45,8 +45,9 @@ See 'improve_the_name()' function in run_analysis.R for details.
 As the task demanded, codebook with description of generated data is placed in separate file
 'Codebook.md' that can be found right next to this README.
 
-## Final words
+## Final words ;-(
 
 I'd like to thank my parents, friends and co-workers for their persistent patiens and trust in me
-while I've been struggling through the task dayly and nightly. I bring my sincere apoligies for
-any typos and grammatic mistakes that take place in provided .md files.
+while I've been struggling through the task dayly and nightly over the years that passed away.
+I bring my sincere apoligies for any typos and grammatic mistakes that take place in provided .md files.
+No accelerometers or gyroscopes were harmed while writing this README. Aya Cthulhu!
